@@ -1,3 +1,5 @@
+#Use this for User Authentication
+
 <?php
 
 $username = $_POST['username'];
