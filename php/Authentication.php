@@ -4,8 +4,16 @@
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-if(isset($_POST["submit"])){
-$target_dir = "UPLOAD";
-$target_file = $target_dir . basename($_FILES["print_file"]["file"]);
-echo $username $password ;}
+
+
+if($username == "106114104" && $password == "a"){
+	header("Location: ../html/print.html");
+	exit();
+}
+
+else{
+	header("Location: ../html/wrong.html");
+	exit();
+}
+
 ?>
