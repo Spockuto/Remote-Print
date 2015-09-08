@@ -1,24 +1,36 @@
 <?php
-// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
-// of $_FILES.
 session_start();
 
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
-echo $_SESSION["username"];
-$uploaddir = '../Upload';
-$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
-echo '<pre>';
-if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-    echo "File is valid, and was successfully uploaded.\n";
+$target_dir = "/var/www/html/Upload/";
+$target_file = $target_dir . basename($_FILES["print-file"]["name"]);
+
+
+
+if (move_uploaded_file($_FILES['print-file']['tmp_name'], $target_file)) {
+    echo "File is valid, and was successfully uploaded.<br>";
 } else {
-    echo "Possible file upload attack!\n";
+    header("Location: ../html/unsuccess.html");
+	exit();
 }
 
-echo 'Here is some more debugging info:';
-print_r($_FILES);
+$cmd = sprintf(' smbclient //octa.edu/A4-4515X %s -U %s -W octa.edu -I 10.0.0.38 -c "print %s; exit;" 2>&1 1> /dev/null',$password,$username,$target_file);
+$output = shell_exec($cmd);
+$str = "Domain=[OCTA] OS=[Windows Server 2008 R2 Enterprise 7600] Server=[Windows Server 2008 R2 Enterprise 6.1]";
+$va = strcmp($output,$str);
+echo $va;
+if($va==1){
+	header("Location: ../html/success.html");
+	exit();
+}
+else{
+	header("Location: ../html/unsuccess.html");
+	exit();
+}
 
-print "</pre>";
+
+
 
 ?>
