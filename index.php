@@ -11,35 +11,39 @@
         <link rel="stylesheet" type="text/css" media="all" href="bootstrap/dist/css/bootstrap-theme.min.css">
     </head>
     <body style="background-image:url('img/background.jpg');background-repeat:no-repeat;background-size:cover;">
-    	<!--<script src="main.js"></script>-->
     	<script "javascript">
     		function UserValidation(){
-				var username;
-				var info;
+				  var username;
+				  username = document.forms["auth"]["username"].value;
 
-				username = document.forms["auth"]["username"].value;
-
-				if(isNaN(username)||username<100000000||username>1000000000){
-					alert("Enter a Valid Roll Number");
-                    return false;
-				}
-				else{
-                    return true;
-				}
-			}
-			</script>
+				  if(isNaN(username)||username<100000000||username>1000000000){
+					 alert("Enter a Valid Roll Number");
+                      return false;
+				  }
+				  else{
+                      return true;
+				  }
+        }
+      </script>
         <div style="width:100%; height:300px; font-size:15;margin-top:50px; opacity:1.0; border:1px; text-align:center;">
-           	<p style="font-size:60;font-color:black;">
+           	<p style="font-size:60;color:black;"id="mass">
            		Title Goes Here!
            		<img src ="img/icon.png" height="80px" width="80px">
             </p>
-			<div class="col-lg-4 col-sm-8 col-sm-offset-2 col-lg-offset-4">
+        <div class="col-lg-4 col-sm-6 col-sm-offset-3 col-lg-offset-4">
                 <div style="margin-top:80px;" class="row">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h4 id="login">
-                            	Login.
-                            </h4>
+                            <?php
+                              session_start();
+                              if($_SESSION["panel_heading_index"]==NULL){
+                                echo "<h4>Login.</h4>";
+                              }
+                              else{
+                                echo $_SESSION["panel_heading_index"] ;
+                                $_SESSION["panel_heading"]=NULL;
+                              }
+                            ?>
                         </div>
                     	<div class="panel-body">
                       		<form name="auth" class="form-inline" action="php/Authentication.php" method="post" onsubmit="return UserValidation()">
@@ -61,17 +65,14 @@
                 </div>
             </div>
         </div>
-        <footer>
-        <footer class="footer" style="display:inline-block;position:relative;">
-            <div class="container">
-            	<div style="margin-top:60px;font-size:25;font-color:black;">
-              		<small>
-              			<cite>
-              				Made with &#10084 by Delta
-              			</cite>
-              		</small>
-              	</div>
-            </div>
-        </footer>
+        <div class="col-lg-4 col-sm-6 col-sm-offset-3 col-lg-offset-4">
+          <div style="margin-top:60px;font-size:25;color:black;text-align:center" class="row">
+            <small>
+              <cite>
+              	Made with &#10084 by Delta
+              </cite>
+            </small>
+          </div>
+        </div>
     </body>
 </html>
