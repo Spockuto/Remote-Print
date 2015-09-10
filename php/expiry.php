@@ -3,8 +3,8 @@
 	$username=$_SESSION["username"];
     $password=$_SESSION["password"];*/
 	
-	$username ="106114051";
-    $password = "Octa500";
+	$username ="";
+    $password = "";
 	
 
 	$host = '10.0.0.39';
