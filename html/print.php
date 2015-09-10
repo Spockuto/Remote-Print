@@ -27,6 +27,8 @@
           }
         </script>
         <input style="position:absolute; top:5; right:5;" type="button" class="btn btn-danger btn-md" value="Logout" onclick="Redirect();" />
+        <input style="position:absolute; top:5; right:80;" type="button" class="btn btn-primary btn-md" value="Change Password">
+        <input style="position:absolute; top:5; right:225	;" type="button" class="btn btn-primary btn-md" value="Check Expiry">
         <div style="width:100%; height:300px; font-size:15;margin-top:50px; opacity:0.9; border:1px; text-align:center;">
            	<p style="font-size:60;color:black;">
            		Title Goes Here!
