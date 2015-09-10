@@ -23,6 +23,7 @@
           function FileCheck(){
             if (!document.getElementById("print-file").value) {
             	alert("Please choose a file!");
+            }
           }
           function Expiry(){
             window.location.assign("expiry.php");
