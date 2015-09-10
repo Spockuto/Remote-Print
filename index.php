@@ -66,11 +66,11 @@
             </div>
         </div>
         <div class="col-lg-4 col-sm-6 col-sm-offset-3 col-lg-offset-4">
-          <div style="margin-top:60px;font-size:25;color:black;text-align:center" class="row">
+          <div style="margin-top:70px;font-size:25;color:black;text-align:center" class="row">
             <small>
               <cite>
-              	Made with &#10084 by Delta
-              </cite>
+              	Made with &#10084 by <a href="http://delta.nitt.edu">Delta Force</a>
+              </cite> 
             </small>
           </div>
         </div>
