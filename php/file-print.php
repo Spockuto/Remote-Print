@@ -41,7 +41,7 @@
 		$target_file = sprintf("%s%s.ps",$target_dir,$file);
 
 	}
-	else(){
+	else{
 		echo "Error. File Type not Supported";
 	}
 
