@@ -20,33 +20,19 @@
 
 
 	$ext = 	pathinfo($filename, PATHINFO_EXTENSION);
-	$file = basename($filename, $ext);
-	$ext = strtolower($ext);
+	$file = basename($filename,'.'. $ext);	
+	$ext = '.'.strtolower($ext);
 
-
-	if($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $ext == 'bmp' || $ext =='jpeg'){
-		$cmd = sprintf(" convert %s eps:%s%s.ps",$targetfile,$target_dir,$file);
+	
+	if($ext == '.pdf'){
+		$cmd = sprintf("bash Shell-Script.sh %s %s%s.pcl",$target_file,$target_dir,$file);
 		shell_exec($cmd);
-		$target_file = sprintf("%s%s.eps",$target_dir,$file);
-	}
-	elseif($ext == 'pdf' ){
-		$cmd = sprintf(" pdftops %s %s%s.ps",$targetfile,$target_dir,$file);
-		shell_exec($cmd);
-		$target_file = sprintf("%s%s.ps",$target_dir,$file);
-
-	}
-	elseif($ext == 'doc' || $ext == 'docx' || $ext == 'txt'){
-		$cmd = sprintf(" groff -Tps %s > %s%s.ps",$targetfile,$target_dir,$file);
-		shell_exec($cmd);
-		$target_file = sprintf("%s%s.ps",$target_dir,$file);
-
+		$target_file = sprintf("%s%s.pcl",$target_dir,$file);
 	}
 	else{
 		echo "Error. File Type not Supported";
 	}
-
-
-	if($filename!=NULL){
+	if($file!=NULL){
 
 		$cmd=sprintf("chmod 777 %s",$target_file);
 		shell_exec($cmd);
