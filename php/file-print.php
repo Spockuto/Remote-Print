@@ -29,6 +29,11 @@
 		shell_exec($cmd);
 		$target_file = sprintf("%s%s.pcl",$target_dir,$file);
 	}
+	elseif($ext == '.jpg' || $ext == '.png'){
+		$cmd = sprintf("convert %s %s%s.pcl",$target_file,$target_dir,$file);
+		shell_exec($cmd);
+		$target_file = sprintf("%s%s.pcl",$target_dir,$file);
+	}
 	else{
 		echo "Error. File Type not Supported";
 	}

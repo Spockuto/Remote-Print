@@ -62,7 +62,7 @@
                     	</div>
                       <div style="margin-top:0px; "class ="container-fluid">
                           <h3>Supported File Types</h3>
-                          <!--<kbd>Images</kbd><mark>JPEG BMP PNG GIF   </mark>-->
+                          <kbd>Images</kbd><mark>JPEG PNG </mark>
                           <kbd>Portables</kbd><mark>   PDF   </mark>
                           <!--<kbd>Text</kbd><mark>    TXT DOC DOCX </mark> -->
                           <h3>Maximum File Size 2MB</h3>  
