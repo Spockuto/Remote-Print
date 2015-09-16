@@ -13,7 +13,7 @@
     <body style="background-image:url('../img/background.jpg');background-repeat:no-repeat;background-size:cover; ">
         <script "javascript">
           function Redirect(){
-          	 <?php
+          	<?php
           	 	session_start();
             	$_SESSION["panel_heading_index"]="<h4>Login.</h4>";
              ?>
@@ -64,7 +64,6 @@
                           <h3>Supported File Types</h3>
                           <kbd>Images</kbd><mark>JPEG PNG </mark>
                           <kbd>Portables</kbd><mark>   PDF   </mark>
-                          <!--<kbd>Text</kbd><mark>    TXT DOC DOCX </mark> -->
                           <h3>Maximum File Size 2MB</h3>  
                       </div>
                     </div>
