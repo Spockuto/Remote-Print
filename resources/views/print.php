@@ -13,7 +13,8 @@
     <body>
         <script "javascript">
             function Redirect(){
-                <?php   $_SESSION["panel_heading_index"]="<h4>Login.</h4>";?>
+                <?php   
+                    $_SESSION["panel_heading_index"]="<h4>Login.</h4>";?>
                 window.location.assign("/");  
                 alert("You have Successfully Logged out");
             }
@@ -60,7 +61,7 @@
                             <h4>Supported File Types</h4>
                             <kbd>Images</kbd><mark>JPEG PNG </mark>
                             <kbd>Portables</kbd><mark>   PDF   </mark>
-                            <h4>Maximum File Size 2MB</h4>  
+                            <h4>Maximum File Size 50MB</h4>  
                         </div><br><br>
                         <div style="margin-top:0px;font-size:25;color:black;text-align:center" class="row">
                             <small>

@@ -21,11 +21,12 @@ class PrintController extends Controller
         $username = $_SESSION["username"];
         $password = $_SESSION["password"];
         $_SESSION["panel_heading_print"]="";
-
+        date_default_timezone_set('Asia/Kolkata');
         $filename = $_FILES["print-file"]["name"];
         $path = storage_path(); 
         $target_dir = $path."/app/Upload/";
-        $target_file = $target_dir . basename($filename);
+        $filename = preg_replace('/\s+/', '_', basename($filename));
+        $target_file = $target_dir . $filename;
 
         if(move_uploaded_file($_FILES['print-file']['tmp_name'], $target_file)) 
         {
@@ -59,16 +60,18 @@ class PrintController extends Controller
         
             $cmd = sprintf(' smbclient //octa.edu/A4 %s -U %s -W octa.edu -I 10.0.0.38 -c "print %s; exit;"',$password,$username,$target_file);
             $output = shell_exec($cmd);
-
+            $date = date('d-m-Y H:i');
             if($output==NULL)
             {
                 $_SESSION["panel_heading_print"]="<h4>File sent to Printer</h4>";
+                Log::info('File Successfully Printed', array('Username' => $username , 'filename' => $target_file , 'time' => $date));
                 return view('print');
             }
         
             else 
             {
                 $_SESSION["panel_heading_print"]= "<h4>Something Went Wrong. Try Again.</h4>";
+                Log::info('File not Printed', array('Username' => $username , 'filename' => $target_file , 'time' => $date));
                 return view('print');
             }
         } 
