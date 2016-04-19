@@ -16,6 +16,7 @@ Info
 
 Build
 -----
+* Requires php5-ldap system package
 * Clone the repository
 * Run `composer install`
 * Create a `.env` and copy the contents of `.env.example` into it
