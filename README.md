@@ -21,3 +21,5 @@ Build
 * Create a `.env` and copy the contents of `.env.example` into it
 * Generate a key with `php artisan key:generate`
 * Run `php artisan serve`
+
+Note: Requires `php5-ldap` package to run.
