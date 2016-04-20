@@ -14,3 +14,10 @@ Info
 * Additional Functionality to check Password Expiry
 
 
+Build
+-----
+* Clone the repository
+* Run `composer install`
+* Create a `.env` and copy the contents of `.env.example` into it
+* Generate a key with `php artisan key:generate`
+* Run `php artisan serve`
